@@ -9,7 +9,7 @@ export function LandingPage() {
           className="home-img"
         />
       </section>
-      <section className="card-div">
+      <section className="category-div">
         <div className="category-card">
           <img
             src="https://images.unsplash.com/photo-1610128361323-6e941c97f023?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=335&q=80"
@@ -17,9 +17,7 @@ export function LandingPage() {
           />
           <h4 className="card-data">Procelain Fin Vases</h4>
           <p className="card-data">Some Description</p>
-          <Link to="/category" className="primary-btn">
-            View More
-          </Link>
+          <Link to="/products"><button className="primary-btn">View More</button></Link>
         </div>
         <div className="category-card">
           <img
@@ -29,9 +27,7 @@ export function LandingPage() {
           />
           <h4 className="card-data">Ceramic Vases</h4>
           <p className="card-data">Some Description</p>
-          <Link to="/category" className="primary-btn">
-            View More
-          </Link>
+          <Link to="/products"><button className="primary-btn">View More</button></Link>
         </div>
         <div className="category-card">
           <img
@@ -41,9 +37,7 @@ export function LandingPage() {
           />
           <h4 className="card-data">Glass Vases</h4>
           <p className="card-data">Some Description</p>
-          <Link to="/category" className="primary-btn">
-            View More
-          </Link>
+          <Link to="/products"><button className="primary-btn">View More</button></Link>
         </div>
       </section>
     </>
