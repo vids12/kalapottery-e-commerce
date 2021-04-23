@@ -3,24 +3,23 @@ import { cartReducer } from "./cartReducer";
 export const CartContext = createContext();
 
 export function CartProvider({ children }) {
+  const [ searchValue,setSearchValue ] = useState("");
   const [state, dispatch] = useReducer(cartReducer, {
     itemsInCart: [],
+    wishList: [],
     showInventory: true,
     fastDelivery: false,
     sortBy: null
   });
-  const [showWishList, setShowWishList] = useState([]);
-  const [searchValue, setSearchValue] = useState("");
   return (
     <CartContext.Provider
       value={{
         showInventory: state.showInventory,
         itemsInCart: state.itemsInCart,
+        wishList: state.wishList,
         fastDelivery: state.fastDelivery,
-        dispatch,
         sortBy: state.sortBy,
-        showWishList,
-        setShowWishList,
+        dispatch,
         searchValue,
         setSearchValue
       }}
@@ -32,3 +31,4 @@ export function CartProvider({ children }) {
 export function useCart() {
   return useContext(CartContext);
 }
+
