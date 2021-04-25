@@ -90,7 +90,8 @@ a {
 }
 .category-card {
   margin: 2rem;
-  border: 6px solid grey;
+  border: 8px solid grey;
+  height: auto;
 }
 .card-data {
   margin: 0.8rem;
@@ -108,6 +109,8 @@ fieldset{
 .category-div {
   display: flex;
   list-style: none;
+  position: relative;
+  top: -17rem;
 }
 .ham{
   height: 32px;
@@ -142,17 +145,50 @@ fieldset{
   content: "\f005";
 }
 
+.slide-img{
+  border-radius: 50%;
+  height: 22rem;
+  position: relative;
+  top: -25rem;
+  left: -11rem;
+}
 
+.footer{
+  text-align: center;
+  background-color: var(--primarycolor);
+  color: white;
+  padding: 2rem 1rem;
+}
+.footer .link{
+  color: white;
+  margin: 0.5rem;
+}
+.footer ul {
+  padding-inline-start: 0px;
+  list-style: none;
+  display: inline-flex;
 
+}
+
+.footer .footer-header{
+  font-weight: bold;
+  font-size: large;
+  margin: 1rem;
+}
 @media only screen and (max-width: 600px){
   *{
     padding: 0;
     margin: 0;
     max-width:100%
   }
+  .slide-img{
+    display: none;
+  }
   .category-div{
     flex-wrap: wrap;
     justify-content: center;
+    overflow: none;
+    position: static;
   }
   .sidebar{
     display: none;
