@@ -29,18 +29,12 @@ export default function setupMockServer() {
           brand: faker.lorem.word(),
           inStock: faker.random.boolean(),
           fastDelivery: faker.random.boolean(),
-          ratings: faker.random.arrayElement([1, 2, 3, 4, 5]),
+          ratings: faker.random.arrayElement([1, 1.5, 2, 3, 3.5, 4, 4.5, 5]),
           offer: faker.random.arrayElement([
             "Save 50",
             "70% bonanza",
-            "Republic Day Sale"
-          ]),
-          idealFor: faker.random.arrayElement([
-            "Men",
-            "Women",
-            "Girl",
-            "Boy",
-            "Senior"
+            "Republic Day Sale",
+            "Hot Sale"
           ]),
           level: faker.random.arrayElement([
             "beginner",

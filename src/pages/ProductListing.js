@@ -19,7 +19,7 @@ export function ProductListing() {
   useEffect(() => {
     (async function () {
       setLoading(true);
-      const response = await axios.get(`https://seeding-faker-data-1.vids18.repl.co/products`);
+      const response = await axios.get(`/api/products`);
       setLoading(false);
       setShowProducts(response.data.products);
     })();
@@ -36,6 +36,7 @@ export function ProductListing() {
               <img src={obj.image} alt={obj.name} className="product-img" />
               <li style={{ margin: "0.5rem" }}>{obj.name}</li>
               <p style={{ margin: "0.3rem" }}>Rs.{obj.price}</p>
+              <p style={{ margin: "0.3rem" }}>{obj.ratings}</p>
               <p style={{ margin: "0.3rem" }}>{obj.inStock ? "In Stock" : "Out Of Stock"}</p>
               <p style={{ margin: "0.2rem" }}>{obj.fastDelivery ? "Fast Delivery Available" : "Fast Delivery not Avaliable"}</p>
               <button
