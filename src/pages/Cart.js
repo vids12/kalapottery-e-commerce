@@ -6,6 +6,9 @@ export function Cart() {
   }
   return (
     <>
+      <div className="bg-img cart-bgImg">
+        <h2 className="page-heading">Cart</h2>
+      </div>
       <h2 style={{textAlign:"center",margin:"1rem"}}>Total: {totalamount()}</h2>
       <ul className="card-div">
         {itemsInCart.map((obj) => {

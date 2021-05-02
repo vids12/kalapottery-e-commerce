@@ -1,7 +1,7 @@
 import { useCart } from "../dataProvider/CartProvider";
 
 export function Filters(){
-    const { dispatch:filterDispatch, fastDelivery, showInventory,sortBy } = useCart();
+    const { dispatch:filterDispatch, fastDelivery, showInventory, sortBy } = useCart();
     return <>
         <fieldset>
         <legend>Sort By</legend>

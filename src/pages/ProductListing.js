@@ -26,6 +26,9 @@ export function ProductListing() {
   }, [showProducts===[]]);
   return (
     <>
+      <div className="bg-img product-bgImg">
+        <h2 className="page-heading">Products</h2>
+      </div>
       {loading && <h1 style={{ textAlign: "center" }}>Loading...</h1>}
       <Filters />
       <h3 style={{margin:"0.5rem"}}>Show {searchData.length} results</h3>

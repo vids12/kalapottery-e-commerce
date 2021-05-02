@@ -8,7 +8,7 @@
 }
 :root {
   --primarycolor: black;
-  --secondarycolor: whitesmoke;
+  --secondarycolor: white;
   --navbarcolor: grey;
 }
 .home-img {
@@ -111,6 +111,26 @@ fieldset{
   list-style: none;
   position: relative;
   top: -17rem;
+}
+.bg-img {
+  background-position: center;
+  background-size: cover;
+  height: 20rem;
+}
+.page-heading {
+  color: var(--secondarycolor);
+  text-align: center;
+  font-size: 40px;
+  font-weight: 500;
+  letter-spacing: 0.2rem;
+  font-family: Lato;
+  padding: 10rem;
+}
+.product-bgImg{
+  background-image: url(//cdn.shopify.com/s/files/1/0535/8049/7061/files/bg_dark.jpg?v=1612750559);
+}
+.cart-bgImg{
+  background-image: url(//cdn.shopify.com/s/files/1/0535/8049/7061/files/bg_page.jpg?v=1612580456);
 }
 .ham{
   height: 32px;
