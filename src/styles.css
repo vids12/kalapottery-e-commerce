@@ -4,7 +4,7 @@
   max-width: 100%;
 }
 .App {
-  font-family: sans-serif;
+  font-family: Lato;
 }
 :root {
   --primarycolor: black;
@@ -110,7 +110,10 @@ fieldset{
   display: flex;
   list-style: none;
   position: relative;
-  top: -17rem;
+  top: -20rem;
+}
+.category-img{
+  height: 20rem;
 }
 .bg-img {
   background-position: center;
@@ -123,7 +126,6 @@ fieldset{
   font-size: 40px;
   font-weight: 500;
   letter-spacing: 0.2rem;
-  font-family: Lato;
   padding: 10rem;
 }
 .product-bgImg{
@@ -146,7 +148,6 @@ fieldset{
   color: var(--navbarcolor);
   z-index: 1;
 }
-
 .dropdown-content p{
   text-decoration: none;
   padding: 0.5rem;
@@ -167,7 +168,8 @@ fieldset{
 
 .slide-img{
   border-radius: 50%;
-  height: 22rem;
+  max-width: 380px;
+  overflow: hidden;
   position: relative;
   top: -25rem;
   left: -11rem;
@@ -195,6 +197,53 @@ fieldset{
   font-size: large;
   margin: 1rem;
 }
+.search-div{
+  transform: translateY(0rem);
+}
+.search-page{
+  height: auto;
+  opacity: 1;
+  visibility: visible;
+  transition: all 0.5s;
+  z-index: 101;
+  padding-bottom: 50px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--secondarycolor);
+}
+.search-title{
+  font-size: 40px;
+  text-align: center;
+  color: black;
+  font-weight: 600;
+  margin-top: 2rem;
+  line-height: 1.2;
+  margin-bottom: 1em;
+}
+.search-box{
+  width: 90%;
+  transition-delay: .3s;
+  opacity: 1;
+  visibility: visible;
+  border-style: none;
+  border-bottom: 1px solid var(--navbarcolor);
+  margin: 2.5rem;
+}
+.search-close-btn{
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+}
+.close-btn{
+  border-radius: 2rem;
+  padding: 0.3rem;
+  border-style: none;
+  background-color: var(--secondarycolor);
+} 
 @media only screen and (max-width: 600px){
   *{
     padding: 0;
@@ -209,6 +258,9 @@ fieldset{
     justify-content: center;
     overflow: none;
     position: static;
+  }
+  .category-img{
+    height: auto;
   }
   .sidebar{
     display: none;
