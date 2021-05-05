@@ -244,6 +244,21 @@ fieldset{
   border-style: none;
   background-color: var(--secondarycolor);
 } 
+.bestSeller-div{
+  position: relative;
+  top: -18rem;
+}
+.title-heading{
+  font-size: 3rem;
+  text-align: center;
+  letter-spacing: -0.05rem;
+  line-height: 1.2;
+}
+.landing-btns{
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0;
+}
 @media only screen and (max-width: 600px){
   *{
     padding: 0;
@@ -290,5 +305,8 @@ fieldset{
   }
   .btn:hover .sidebar{
     display: block;
+  }
+  .bestSeller-div{
+    position: static;
   }
 }
