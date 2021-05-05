@@ -259,6 +259,10 @@ fieldset{
   justify-content: center;
   margin: 1rem 0;
 }
+.active{
+  background-color: var(--primarycolor);
+  color: var(--secondarycolor);
+}
 @media only screen and (max-width: 600px){
   *{
     padding: 0;

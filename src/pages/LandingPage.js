@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { useState,useEffect } from "react";
 import axios from "axios";
 import { getBestSellerData } from "../filterFunctions/getBestSellerData";
@@ -35,9 +34,9 @@ export function LandingPage() {
       <section className="bestSeller-div">
         <h3 className="title-heading">Our Best Seller</h3>
         <div className="landing-btns">
-          <button className="secondary-btn active" onClick={()=>setRoute("newArrival")}>New Arrivals</button>
-          <button className="secondary-btn" onClick={()=>setRoute("bestSeller")}>Best Sellers</button>
-          <button className="secondary-btn" onClick={()=>setRoute("topRates")}>Top Rates</button>
+          <button className="secondary-btn" onClick={()=>setRoute("newArrival")} style={route==="newArrival" ? {backgroundColor:"black",color:"white" } : {backgroundColor:"white",color:"black"} }>New Arrivals</button>
+          <button className="secondary-btn" onClick={()=>setRoute("bestSeller")} style={route==="bestSeller" ? {backgroundColor:"black",color:"white" } : {backgroundColor:"white",color:"black"} }>Best Sellers</button>
+          <button className="secondary-btn" onClick={()=>setRoute("topRates")} style={route==="topRates" ? {backgroundColor:"black",color:"white" } : {backgroundColor:"white",color:"black"} }>Top Rates</button>
         </div>
         <div>
           {route ==="newArrival" && <ul className="card-div">
@@ -53,11 +52,9 @@ export function LandingPage() {
                 }
                   }
                   className="primary-btn"
-                  style={{display:itemsInCart.includes(obj) ? "none" : "inline-block"}}
                 >
                   Add to Cart
               </button>
-              { itemsInCart.includes(obj) && <Link to="/cart"><button className="primary-btn">Go to Cart</button></Link>}
               <button
                 onClick={() =>cartDispatch({type: "ADD_TO_WISHLIST", payload: obj})}
                 className="secondary-btn"
@@ -82,11 +79,9 @@ export function LandingPage() {
                 }
                   }
                   className="primary-btn"
-                  style={{display:itemsInCart.includes(obj) ? "none" : "inline-block"}}
                 >
                   Add to Cart
               </button>
-              { itemsInCart.includes(obj) && <Link to="/cart"><button className="primary-btn">Go to Cart</button></Link>}
               <button
                 onClick={() =>cartDispatch({type: "ADD_TO_WISHLIST", payload: obj})}
                 className="secondary-btn"
@@ -112,11 +107,9 @@ export function LandingPage() {
                 }
                   }
                   className="primary-btn"
-                  style={{display:itemsInCart.includes(obj) ? "none" : "inline-block"}}
                 >
                   Add to Cart
               </button>
-              { itemsInCart.includes(obj) && <Link to="/cart"><button className="primary-btn">Go to Cart</button></Link>}
               <button
                 onClick={() =>cartDispatch({type: "ADD_TO_WISHLIST", payload: obj})}
                 className="secondary-btn"
@@ -131,7 +124,8 @@ export function LandingPage() {
         </div>
       </section>
       <footer className="footer">
-        <div className="footer-header"><strong>Connect with me on:</strong></div>
+        <div className="footer-header">Made by Vidushi Agrawal</div>
+        <div className="footer-header">Connect with me on:</div>
         <ul className="social-sites">
            
             <li className="list-inline">
