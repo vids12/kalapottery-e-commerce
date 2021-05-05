@@ -11,7 +11,7 @@ import { getSearchData } from "../filterFunctions/getSearchedData";
 export function ProductListing() {
   const [loading, setLoading] = useState(false);
   const [showProducts, setShowProducts] = useState([]);
-  const { dispatch: cartDispatch,showInventory,fastDelivery,sortBy,itemsInCart,wishList } = useCart();
+  const { dispatch: cartDispatch,showInventory,fastDelivery,sortBy,itemsInCart,wishList} = useCart();
   let { searchValue } = useCart();
   const sortedArr = getSortedArr(showProducts, sortBy);
   const filteredData = getFilterData(sortedArr, showInventory,fastDelivery);

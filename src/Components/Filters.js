@@ -29,6 +29,18 @@ export function Filters(){
           ></input>
           Price-low to high
         </label>
+        <label className="filter-label">
+          <input
+            type="radio"
+            name="sort"
+            onClick={() =>
+              filterDispatch({ type: "SORT", payload: "ALPHABETICALLY" })
+            }
+            checked={sortBy && sortBy==="ALPHABETICALLY"}
+            className="filter-input"
+          ></input>
+          Alphabetically,A-Z
+        </label>
         <div className="dropdown">
           <button className="dropdown-btn secondary-btn">Ratings</button>
           <div className="dropdown-content">
