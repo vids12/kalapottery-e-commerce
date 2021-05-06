@@ -4,11 +4,10 @@ import { getBestSellerData } from "../filterFunctions/getBestSellerData";
 import { getNewArrivalData } from "../filterFunctions/getNewArrivalData";
 import { getTopRatesData } from "../filterFunctions/getTopRatesData";
 import { LandingPageCard } from "../Components/LandingPageCard";
-import { useCart } from "../dataProvider/CartProvider";
+import { Link } from "react-router-dom";
 export function LandingPage() {
   const [route, setRoute] = useState("newArrival");
   const [showProducts, setShowProducts] = useState([]);
-  const { dispatch: cartDispatch ,itemsInCart ,wishList} = useCart();
   useEffect(() => {
     (async function () {
       const response = await axios.get(`https://e-comm-backend.vids18.repl.co/products`);
@@ -46,22 +45,9 @@ export function LandingPage() {
               <img src={obj.image} alt={obj.name} className="product-img" />
               <li style={{ margin: "0.5rem" }}>{obj.name}</li>
               <p style={{ margin: "0.3rem" }}>Rs.{obj.price}</p>
-              <button
-                onClick={() =>{ cartDispatch({ type: "ADD_TO_CART", payload: obj  });
-                      
-                }
-                  }
-                  className="primary-btn"
-                >
-                  Add to Cart
-              </button>
-              <button
-                onClick={() =>cartDispatch({type: "ADD_TO_WISHLIST", payload: obj})}
-                className="secondary-btn"
-                disabled={wishList.includes(obj)}
-              >
-                {wishList.includes(obj) ? "Added to WishList" : "Add to WishList"}
-              </button>
+              <Link to={`/products/${obj._id}`}>
+                <button className="primary-btn">View</button>
+              </Link>
             </div>
           );
         })}
@@ -73,22 +59,9 @@ export function LandingPage() {
               <img src={obj.image} alt={obj.name} className="product-img" />
               <li style={{ margin: "0.5rem" }}>{obj.name}</li>
               <p style={{ margin: "0.3rem" }}>Rs.{obj.price}</p>
-              <button
-                onClick={() =>{ cartDispatch({ type: "ADD_TO_CART", payload: obj  });
-                      
-                }
-                  }
-                  className="primary-btn"
-                >
-                  Add to Cart
-              </button>
-              <button
-                onClick={() =>cartDispatch({type: "ADD_TO_WISHLIST", payload: obj})}
-                className="secondary-btn"
-                disabled={wishList.includes(obj)}
-              >
-                {wishList.includes(obj) ? "Added to WishList" : "Add to WishList"}
-              </button>
+              <Link to={`/products/${obj._id}`}>
+                <button className="primary-btn">View</button>
+              </Link>
             </div>
           );
         })}
@@ -101,22 +74,9 @@ export function LandingPage() {
               <img src={obj.image} alt={obj.name} className="product-img" />
               <li style={{ margin: "0.5rem" }}>{obj.name}</li>
               <p style={{ margin: "0.3rem" }}>Rs.{obj.price}</p>
-              <button
-                onClick={() =>{ cartDispatch({ type: "ADD_TO_CART", payload: obj  });
-                      
-                }
-                  }
-                  className="primary-btn"
-                >
-                  Add to Cart
-              </button>
-              <button
-                onClick={() =>cartDispatch({type: "ADD_TO_WISHLIST", payload: obj})}
-                className="secondary-btn"
-                disabled={wishList.includes(obj)}
-              >
-                {wishList.includes(obj) ? "Added to WishList" : "Add to WishList"}
-              </button>
+              <Link to={`/products/${obj._id}`}>
+                <button className="primary-btn">View</button>
+              </Link>
             </div>
           );
         })}
