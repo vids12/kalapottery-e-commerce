@@ -58,7 +58,7 @@ export function Filters(){
           <input
             type="checkbox"
             checked={showInventory}
-            onClick={() => filterDispatch({ type: "TOGGLE_INVENTORY" })}
+            onChange={() => filterDispatch({ type: "TOGGLE_INVENTORY" })}
             className="filter-input"
           ></input>
           Include Out Of Stock
@@ -67,7 +67,7 @@ export function Filters(){
           <input
             type="checkbox"
             checked={fastDelivery}
-            onClick={() => filterDispatch({ type: "FAST_DELIVERY" })}
+            onChange={() => filterDispatch({ type: "FAST_DELIVERY" })}
             className="filter-input"
           ></input>
           Fast-Delivery
