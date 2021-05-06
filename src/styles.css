@@ -263,6 +263,41 @@ fieldset{
   background-color: var(--primarycolor);
   color: var(--secondarycolor);
 }
+.product-detail-div{
+  display:flex;
+  margin: 2rem;
+}
+.product-div{
+  margin: 2rem;
+}
+.product-heading{
+  font-size: 1.5rem;
+}
+.product-description{
+  font-size: 0.8rem;
+  color: #a8a8a8;
+  line-height: 1.5rem;
+  font-weight: 400;
+  padding-top: 0.4rem;
+}
+.option{
+  border-bottom: 1px var(--primarycolor) solid;
+  line-height: 2rem;
+}
+.product-size{
+  margin: 1rem;
+  padding: 0.5rem;
+  background-color: var(--primarycolor);
+  color: var(--secondarycolor);
+}
+.product-color{
+  margin: 1rem;
+  padding: 0.5rem;
+  text-transform: uppercase;
+}
+.product-detail{
+  line-height: 1.5rem;
+}
 @media only screen and (max-width: 600px){
   *{
     padding: 0;
@@ -312,5 +347,12 @@ fieldset{
   }
   .bestSeller-div{
     position: static;
+  }
+  .product-detail-div{
+    display: block;
+  }
+  .product-div{
+    margin-left: 1rem;
+    width: auto;
   }
 }

@@ -6,6 +6,7 @@ import { ProductListing } from "./pages/ProductListing";
 import { Cart } from "./pages/Cart";
 import { WishList } from "./pages/Wishlist";
 import { NotFound } from "./pages/404";
+import { ProductDetail } from "./pages/ProductDetail";
 import { Footer } from "./Components/Footer";
 
 export default function App() {
@@ -18,6 +19,7 @@ export default function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/wishlist" element={<WishList />} />
         <Route path="*" element={<NotFound />} />
+        <Route path="/products/:productId" element={<ProductDetail />}/>
       </Routes>
       <Footer />
     </div>

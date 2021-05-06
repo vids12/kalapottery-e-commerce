@@ -33,14 +33,17 @@ export function ProductListing() {
       <Filters />
       <h3 style={{margin:"0.5rem"}}>Show {searchData.length} results</h3>
       <ul className="card-div">
-        {searchData.map((obj) => {
+        {searchData.map(obj => {
           return (
-            <div className="card">
+            <li className="card" key={obj._id}>
               <img src={obj.image} alt={obj.name} className="product-img" />
               <li style={{ margin: "0.5rem" }}>{obj.name}</li>
               <p style={{ margin: "0.3rem" }}>Rs.{obj.price}</p>
               <p style={{ margin: "0.3rem" }}>{obj.inStock ? "In Stock" : "Out Of Stock"}</p>
               <p style={{ margin: "0.2rem" }}>{obj.fastDelivery ? "Fast Delivery Available" : "Fast Delivery not Avaliable"}</p>
+              <Link to={`/products/${obj._id}`}>
+                <button className="primary-btn">View</button>
+              </Link>
               <button
                 onClick={() =>{ cartDispatch({ type: "ADD_TO_CART", payload: obj  });
                       
@@ -59,7 +62,7 @@ export function ProductListing() {
               >
                 {wishList.includes(obj) ? "Added to WishList" : "Add to WishList"}
               </button>
-            </div>
+            </li>
           );
         })}
       </ul>
