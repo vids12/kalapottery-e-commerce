@@ -6,6 +6,7 @@ import { ProductListing } from "./pages/ProductListing";
 import { Cart } from "./pages/Cart";
 import { WishList } from "./pages/Wishlist";
 import { NotFound } from "./pages/404";
+import { Footer } from "./Components/Footer";
 
 export default function App() {
   return (
@@ -18,6 +19,7 @@ export default function App() {
         <Route path="/wishlist" element={<WishList />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
+      <Footer />
     </div>
   );
 }
