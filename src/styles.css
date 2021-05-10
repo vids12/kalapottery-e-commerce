@@ -1,10 +1,10 @@
 * {
   padding: 0;
   margin: 0;
-  max-width: 100%;
 }
 .App {
   font-family: sans-serif;
+  /* text-align: center; */
 }
 :root {
   --primarycolor: black;
@@ -24,25 +24,23 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--secondarycolor);
+  background-color: var(--navbarcolor);
   padding: 0.5rem;
   max-width: 100%;
-  margin-top: auto;
 }
-a {
+.nav-bar a {
   text-decoration: none;
-  color: var(--primarycolor);
+  color: var(--secondarycolor);
   padding: 0.5rem;
 }
 .nav-bar a:hover {
-  color: var(--secondarycolor);
-  background-color: var(--primarycolor);
+  background-color: var(--secondarycolor);
+  color: var(--primarycolor);
 }
 .search-box {
   border-style: none;
   height: 1.3rem;
   padding: 0.5rem;
-  border-bottom: 1px solid black;
 }
 .product-img {
   height: 14rem;
@@ -74,10 +72,10 @@ a {
 }
 .secondary-btn {
   color: var(--primaryarycolor);
-  border: 1px solid var(--primarycolor);
+  border: 1px solid var(--secondarycolor);
   padding: 10px;
   border-radius: 5px;
-  background-color: var(--secondarycolor);
+  background-color: var(--navbarcolor);
   text-align: center;
   transition-duration: 0.4s;
   cursor: pointer;
@@ -89,23 +87,13 @@ a {
   color: var(--secondarycolor);
 }
 .category-card {
+  height: auto;
   margin: 2rem;
   border: 6px solid grey;
 }
+.category-card a {
+  text-decoration: none;
+}
 .card-data {
   margin: 0.8rem;
-}
-fieldset{
-  padding: 1rem;
-  margin: 0.5rem;
-}
-.filter-label{
-  padding: 0.5rem;
-}
-.filter-input{
-  margin: 0.2rem;
-}
-.category-div {
-  display: flex;
-  list-style: none;
 }

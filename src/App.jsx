@@ -2,10 +2,9 @@ import "./styles.css";
 import { Navbar } from "./Components/Navbar.js";
 import { Routes, Route } from "react-router-dom";
 import { LandingPage } from "./pages/LandingPage";
-import { ProductListing } from "./pages/ProductListing";
+import { Category } from "./pages/Category";
 import { Cart } from "./pages/Cart";
 import { WishList } from "./pages/Wishlist";
-import { NotFound } from "./pages/404";
 
 export default function App() {
   return (
@@ -13,10 +12,9 @@ export default function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<LandingPage />} />
-        <Route path="/products" element={<ProductListing />} />
+        <Route path="/category" element={<Category />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/wishlist" element={<WishList />} />
-        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   );

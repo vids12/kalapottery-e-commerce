@@ -1,48 +1,46 @@
 export function cartReducer(state, action) {
   switch (action.type) {
     case "INCREASE_QUANTITY":
-      return {...state,
+      return {
+        ...state,
         itemsInCart: state.itemsInCart.map((item) =>
           item.id === action.payload.id
             ? { ...item, quantity: action.payload.quantity + 1 }
-            :  item 
+            : { item }
         )
       };
     case "DECREASE_QUANTITY":
-      return {...state,
+      return {
+        ...state,
         itemsInCart: state.itemsInCart.map((item) =>
           item.id === action.payload.id
             ? { ...item, quantity: action.payload.quantity - 1 }
-            :  item 
+            : { item }
         )
       };
-    case "REMOVE_FROM_CART":
-      return {...state,
+    case "REMOVE":
+      console.log(state.itemsInCart);
+      return {
+        ...state,
         itemsInCart: state.itemsInCart.filter((item) =>
-          item.id === action.payload.id ? !item  :  item 
+          item.id === action.payload.id ? !{ item } : { item }
         )
       };
     case "ADD_TO_CART":
-      return {...state,itemsInCart: state.itemsInCart.concat(action.payload)};
-    case "ADD_TO_WISHLIST":
-      return {...state,wishList: state.wishList.concat(action.payload)};
-    case "REMOVE_FROM_WISHLIST":
-      return {...state,
-        wishList: state.wishList.filter((item) =>
-          item.id === action.payload.id ? !item  : item 
-        )
+      return {
+        ...state,
+        itemsInCart: state.itemsInCart.concat(action.payload)
       };
     case "SORT":
-      return {...state,sortBy: action.payload};
+      return {
+        ...state,
+        sortBy: action.payload
+      };
     case "TOGGLE_INVENTORY":
       return { ...state, showInventory: !state.showInventory };
     case "FAST_DELIVERY":
       return { ...state, fastDelivery: !state.fastDelivery };
-    case "CLEAR_FILTERS":
-      return {...state, sortBy:null,showInventory:false, fastDelivery: false};
     default:
       return { state };
   }
 }
-
-
