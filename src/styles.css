@@ -301,6 +301,44 @@ fieldset{
 .product-detail{
   line-height: 1.5rem;
 }
+.login-register form{
+  line-height: 2.5rem;
+  position: relative;
+  top: 0;
+  left: 40%;
+}
+.login-register-heading{
+  font-size: 1.5rem;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding-bottom: 2rem;
+}
+.login-register{
+  margin-bottom: 5rem;
+}
+.login-register label{
+  font-weight: 500;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+.login-register input{
+  border: none;
+  border-bottom: 1px solid var(--navbarcolor);
+  margin: 1rem;
+  padding: 0.5rem;
+}
+.login-register input:focus{
+  outline: none;
+}
+.login-register div:nth-child(2) input{
+  margin-left: 2.7rem;
+}
+.login-register button{
+  width: 20%;
+  margin-left: 1.5rem;
+  border-radius: 0rem;
+}
 @media only screen and (max-width: 600px){
   *{
     padding: 0;
