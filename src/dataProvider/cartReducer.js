@@ -3,7 +3,7 @@ export function cartReducer(state, action) {
     case "INCREASE_QUANTITY":
       return {...state,
         itemsInCart: state.itemsInCart.map((item) =>
-          item.id === action.payload.id
+          item._id === action.payload._id
             ? { ...item, quantity: action.payload.quantity + 1 }
             :  item 
         )
@@ -11,7 +11,7 @@ export function cartReducer(state, action) {
     case "DECREASE_QUANTITY":
       return {...state,
         itemsInCart: state.itemsInCart.map((item) =>
-          item.id === action.payload.id
+          item._id === action.payload._id
             ? { ...item, quantity: action.payload.quantity - 1 }
             :  item 
         )
@@ -19,7 +19,7 @@ export function cartReducer(state, action) {
     case "REMOVE_FROM_CART":
       return {...state,
         itemsInCart: state.itemsInCart.filter((item) =>
-          item.id === action.payload.id ? !item  :  item 
+          item._id === action.payload._id ? !item  :  item 
         )
       };
     case "ADD_TO_CART":
@@ -29,7 +29,7 @@ export function cartReducer(state, action) {
     case "REMOVE_FROM_WISHLIST":
       return {...state,
         wishList: state.wishList.filter((item) =>
-          item.id === action.payload.id ? !item  : item 
+          item._id === action.payload._id ? !item  : item 
         )
       };
     case "SORT":

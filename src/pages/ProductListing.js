@@ -44,23 +44,21 @@ export function ProductListing() {
               <Link to={`/products/${obj._id}`}>
                 <button className="primary-btn">View</button>
               </Link>
-              <button
+              {itemsInCart.find(item => item._id === obj._id) ? <Link to="/cart"><button className="primary-btn">Go to Cart</button></Link> : <button
                 onClick={() =>{ cartDispatch({ type: "ADD_TO_CART", payload: obj  });
                       
                 }
                   }
                   className="primary-btn"
-                  style={{display:itemsInCart.includes(obj) ? "none" : "inline-block"}}
                 >
                   Add to Cart
-              </button>
-              { itemsInCart.includes(obj) && <Link to="/cart"><button className="primary-btn">Go to Cart</button></Link>}
+              </button>}
               <button
                 onClick={() =>cartDispatch({type: "ADD_TO_WISHLIST", payload: obj})}
                 className="secondary-btn"
-                disabled={wishList.includes(obj)}
+                disabled={wishList.find(item => item._id === obj._id)}
               >
-                {wishList.includes(obj) ? "Added to WishList" : "Add to WishList"}
+                {wishList.find(item => item._id === obj._id) ? "Added to WishList" : "Add to WishList"}
               </button>
             </li>
           );
