@@ -302,7 +302,7 @@ fieldset{
 .product-detail{
   line-height: 1.5rem;
 }
-.login-register form{
+.login-register .form{
   line-height: 2.5rem;
   position: relative;
   top: 0;

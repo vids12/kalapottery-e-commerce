@@ -1,10 +1,9 @@
-import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useCart } from "../dataProvider/CartProvider";
 import { SearchBar } from "./SearchBar";
 
 export function Navbar() {
-  const {itemsInCart, wishList, setShowSearchPage, showSearchPage} = useCart();
+  const { itemsInCart, wishList, setShowSearchPage, showSearchPage } = useCart();
   return <div className="nav-bar">
     <img
         src="https://themeforshop.github.io/kala-pottery-demo/images/logo.png"
