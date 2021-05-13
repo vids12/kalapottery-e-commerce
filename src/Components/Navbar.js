@@ -1,9 +1,12 @@
 import { NavLink } from "react-router-dom";
+import { useAuth } from "../dataProvider/AuthProvider";
 import { useCart } from "../dataProvider/CartProvider";
 import { SearchBar } from "./SearchBar";
+import { WelcomeNote } from "./WelcomeNote";
 
 export function Navbar() {
   const { itemsInCart, wishList, setShowSearchPage, showSearchPage } = useCart();
+  const { isLogin,email } = useAuth();
   return <div className="nav-bar">
     <img
         src="https://themeforshop.github.io/kala-pottery-demo/images/logo.png"
@@ -18,6 +21,7 @@ export function Navbar() {
           <NavLink to="/products" activeStyle={{fontWeight : "bold"}}> Products </NavLink>
           <NavLink to="/cart" activeStyle={{fontWeight : "bold"}}>Cart <span>{itemsInCart.length}</span></NavLink>
           <NavLink to="/wishlist" activeStyle={{fontWeight : "bold"}}>WishList <span>{wishList.length}</span></NavLink>
+          {isLogin ? <WelcomeNote email={email} /> : <NavLink to="/login" activeStyle={{fontWeight : "bold"}}>Login</NavLink>}
         </nav>
       </div>
   </div>

@@ -9,7 +9,7 @@ export function WishList() {
         <ul className="card-div">
         {wishList.map((obj) => {
           return (
-            <div className="card">
+            <div className="card" key={obj._id}>
               <img src={obj.image} alt={obj.name} className="product-img" />
               <li style={{ margin: "0.5rem" }}>{obj.name}</li>
               <p style={{ margin: "0.3rem" }}>{obj.price}</p>

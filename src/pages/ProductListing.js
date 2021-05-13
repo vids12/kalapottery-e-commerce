@@ -4,7 +4,7 @@ import axios from "axios";
 import { Filters } from "../Components/Filters";
 import { getFilterData } from "../filterFunctions/getFilteredData";
 import { getSortedArr } from "../filterFunctions/getSortedArr";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { getSearchData } from "../filterFunctions/getSearchedData";
 
 
@@ -13,6 +13,7 @@ export function ProductListing() {
   const [showProducts, setShowProducts] = useState([]);
   const { dispatch: cartDispatch,showInventory,fastDelivery,sortBy,itemsInCart,wishList} = useCart();
   let { searchValue } = useCart();
+  // const navigate = useNavigate();
   const sortedArr = getSortedArr(showProducts, sortBy);
   const filteredData = getFilterData(sortedArr, showInventory,fastDelivery);
   const searchData = getSearchData(filteredData,searchValue)
@@ -54,7 +55,7 @@ export function ProductListing() {
                   Add to Cart
               </button>}
               <button
-                onClick={() =>cartDispatch({type: "ADD_TO_WISHLIST", payload: obj})}
+                onClick={() => cartDispatch({type: "ADD_TO_WISHLIST", payload: obj})}
                 className="secondary-btn"
                 disabled={wishList.find(item => item._id === obj._id)}
               >

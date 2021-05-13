@@ -4,8 +4,7 @@ import { useAuth } from "../dataProvider/AuthProvider";
 
 
 export function Login(){
-    const { loginUserWithCredentials } = useAuth();
-    const [email,setEmail] = useState("");
+    const { loginUserWithCredentials ,email,setEmail } = useAuth();
     const [password,setPassword] = useState("");
     const  { state } = useLocation();
     const  navigate = useNavigate();

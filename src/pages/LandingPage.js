@@ -41,7 +41,7 @@ export function LandingPage() {
           {route ==="newArrival" && <ul className="card-div">
         {newArrivalData.map((obj) => {
           return (
-            <div className="card">
+            <div className="card" key={obj._id}>
               <img src={obj.image} alt={obj.name} className="product-img" />
               <li style={{ margin: "0.5rem" }}>{obj.name}</li>
               <p style={{ margin: "0.3rem" }}>Rs.{obj.price}</p>
@@ -55,7 +55,7 @@ export function LandingPage() {
           {route === "bestSeller" && <ul className="card-div">
         {bestSellerData.map((obj) => {
           return (
-            <div className="card">
+            <div className="card" key={obj._id}>
               <img src={obj.image} alt={obj.name} className="product-img" />
               <li style={{ margin: "0.5rem" }}>{obj.name}</li>
               <p style={{ margin: "0.3rem" }}>Rs.{obj.price}</p>
@@ -70,7 +70,7 @@ export function LandingPage() {
           {route === "topRates" && <ul className="card-div">
         {topRatesData.map((obj) => {
           return (
-            <div className="card">
+            <div className="card" key={obj._id}>
               <img src={obj.image} alt={obj.name} className="product-img" />
               <li style={{ margin: "0.5rem" }}>{obj.name}</li>
               <p style={{ margin: "0.3rem" }}>Rs.{obj.price}</p>
