@@ -3,8 +3,8 @@ import axios from "axios";
 import { getBestSellerData } from "../filterFunctions/getBestSellerData";
 import { getNewArrivalData } from "../filterFunctions/getNewArrivalData";
 import { getTopRatesData } from "../filterFunctions/getTopRatesData";
-import { LandingPageCard } from "../Components/LandingPageCard";
-import { Link } from "react-router-dom";
+import { LandingPageCard } from "../Components/Home Page/LandingPageCard";
+import { OfferCard } from "../Components/Home Page/OfferCard";
 export function LandingPage() {
   const [route, setRoute] = useState("newArrival");
   const [showProducts, setShowProducts] = useState([]);
@@ -38,49 +38,9 @@ export function LandingPage() {
           <button className="secondary-btn" onClick={()=>setRoute("topRates")} style={route==="topRates" ? {backgroundColor:"black",color:"white" } : {backgroundColor:"white",color:"black"} }>Top Rates</button>
         </div>
         <div>
-          {route ==="newArrival" && <ul className="card-div">
-        {newArrivalData.map((obj) => {
-          return (
-            <div className="card" key={obj._id}>
-              <img src={obj.image} alt={obj.name} className="product-img" />
-              <li style={{ margin: "0.5rem" }}>{obj.name}</li>
-              <p style={{ margin: "0.3rem" }}>Rs.{obj.price}</p>
-              <Link to={`/products/${obj._id}`}>
-                <button className="primary-btn">View</button>
-              </Link>
-            </div>
-          );
-        })}
-      </ul>}
-          {route === "bestSeller" && <ul className="card-div">
-        {bestSellerData.map((obj) => {
-          return (
-            <div className="card" key={obj._id}>
-              <img src={obj.image} alt={obj.name} className="product-img" />
-              <li style={{ margin: "0.5rem" }}>{obj.name}</li>
-              <p style={{ margin: "0.3rem" }}>Rs.{obj.price}</p>
-              <Link to={`/products/${obj._id}`}>
-                <button className="primary-btn">View</button>
-              </Link>
-            </div>
-          );
-        })}
-      </ul>
-          }
-          {route === "topRates" && <ul className="card-div">
-        {topRatesData.map((obj) => {
-          return (
-            <div className="card" key={obj._id}>
-              <img src={obj.image} alt={obj.name} className="product-img" />
-              <li style={{ margin: "0.5rem" }}>{obj.name}</li>
-              <p style={{ margin: "0.3rem" }}>Rs.{obj.price}</p>
-              <Link to={`/products/${obj._id}`}>
-                <button className="primary-btn">View</button>
-              </Link>
-            </div>
-          );
-        })}
-      </ul>}
+          {route ==="newArrival" && <OfferCard list={newArrivalData}/>}
+          {route === "bestSeller" && <OfferCard list={bestSellerData}/>}
+          {route === "topRates" && <OfferCard list={topRatesData} />}
         </div>
       </section>
     </>
