@@ -43,6 +43,7 @@ export function LandingPage() {
           {route === "topRates" && <OfferCard list={topRatesData} />}
         </div>
       </section>
+      <Banner />
     </>
   );
 }
