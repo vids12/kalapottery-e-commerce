@@ -346,6 +346,7 @@ fieldset {
 .product-detail-div {
   display: flex;
   margin: 2rem;
+  column-gap: 3rem;
 }
 .product-div {
   margin: 2rem;
@@ -359,6 +360,7 @@ fieldset {
   line-height: 1.5rem;
   font-weight: 400;
   padding-top: 0.4rem;
+  margin: 0.5rem 0;
 }
 .option {
   border-bottom: 1px var(--primarycolor) solid;
