@@ -44,11 +44,10 @@ export function Filters(){
         <div className="dropdown">
           <button className="dropdown-btn secondary-btn">Ratings</button>
           <div className="dropdown-content">
-          <i class="fa fa-star fa-1" aria-hidden="true"></i>
-            <p onClick={()=>filterDispatch({type: "SORT", payload: "4_&_UP"})}>4 &amp; Up </p>
-            <p onClick={()=>filterDispatch({type: "SORT", payload: "3_&_UP"})}>3 &amp; Up</p>
-            <p onClick={()=>filterDispatch({type: "SORT", payload: "2_&_UP"})}>2 &amp; Up</p>
-            <p onClick={()=>filterDispatch({type: "SORT", payload: "1_&_UP"})}>1 &amp; Up</p>
+            <p onClick={()=>filterDispatch({type: "SORT", payload: "4_&_UP"})}>4<i class="fa fa-star fa-1" aria-hidden="true"></i> &amp; Above </p>
+            <p onClick={()=>filterDispatch({type: "SORT", payload: "3_&_UP"})}>3<i class="fa fa-star fa-1" aria-hidden="true"></i> &amp; Above</p>
+            <p onClick={()=>filterDispatch({type: "SORT", payload: "2_&_UP"})}>2<i class="fa fa-star fa-1" aria-hidden="true"></i> &amp; Above</p>
+            <p onClick={()=>filterDispatch({type: "SORT", payload: "1_&_UP"})}>1<i class="fa fa-star fa-1" aria-hidden="true"></i> &amp; Above</p>
           </div>
         </div>
       </fieldset>
