@@ -13,7 +13,6 @@ export function ProductListing() {
   const [showProducts, setShowProducts] = useState([]);
   const { dispatch: cartDispatch,showInventory,fastDelivery,sortBy,itemsInCart,wishList} = useCart();
   let { searchValue } = useCart();
-  // const navigate = useNavigate();
   const sortedArr = getSortedArr(showProducts, sortBy);
   const filteredData = getFilterData(sortedArr, showInventory,fastDelivery);
   const searchData = getSearchData(filteredData,searchValue)
