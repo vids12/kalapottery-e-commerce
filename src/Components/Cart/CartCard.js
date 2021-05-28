@@ -1,4 +1,4 @@
-import { useCart } from "../dataProvider/CartProvider";
+import { useCart } from "../../dataProvider/CartProvider";
 
 export function CartCard(){
     const { itemsInCart, dispatch: cartDispatch } = useCart();
