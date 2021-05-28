@@ -23,7 +23,15 @@ export function ProductListing() {
       setLoading(false);
       setShowProducts(response.data.products);
     })();
-  }, [showProducts===[]]);
+  }, [showProducts === []]);
+  async function addItemsToCart(obj) {
+    await axios.post('https://e-comm-backend.vids18.repl.co/cart', obj);
+    cartDispatch({ type: "ADD_TO_CART", payload: obj });
+  }
+  async function addToWishlist(obj) {
+    await axios.post('https://e-comm-backend.vids18.repl.co/wishlist', obj);
+    cartDispatch({ type: "ADD_TO_WISHLIST", payload: obj });
+  }
   return (
     <>
       <div className="bg-img product-bgImg">
@@ -45,16 +53,13 @@ export function ProductListing() {
                 <button className="primary-btn">View</button>
               </Link>
               {itemsInCart.find(item => item._id === obj._id) ? <Link to="/cart"><button className="primary-btn">Go to Cart</button></Link> : <button
-                onClick={() =>{ cartDispatch({ type: "ADD_TO_CART", payload: obj  });
-                      
-                }
-                  }
+                onClick={() => addItemsToCart(obj)}
                   className="primary-btn"
                 >
                   Add to Cart
               </button>}
               <button
-                onClick={() => cartDispatch({type: "ADD_TO_WISHLIST", payload: obj})}
+                onClick={() => addToWishlist(obj)}
                 className="secondary-btn"
                 disabled={wishList.find(item => item._id === obj._id)}
               >
