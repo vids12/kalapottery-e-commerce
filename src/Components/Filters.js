@@ -1,7 +1,7 @@
 import { useCart } from "../dataProvider/CartProvider";
 
 export function Filters(){
-    const { dispatch:filterDispatch, fastDelivery, showInventory,sortBy } = useCart();
+    const { dispatch:filterDispatch, fastDelivery, showInventory, sortBy } = useCart();
     return <>
         <fieldset>
         <legend>Sort By</legend>
@@ -29,6 +29,27 @@ export function Filters(){
           ></input>
           Price-low to high
         </label>
+        <label className="filter-label">
+          <input
+            type="radio"
+            name="sort"
+            onClick={() =>
+              filterDispatch({ type: "SORT", payload: "ALPHABETICALLY" })
+            }
+            checked={sortBy && sortBy==="ALPHABETICALLY"}
+            className="filter-input"
+          ></input>
+          Alphabetically,A-Z
+        </label>
+        <div className="dropdown">
+          <button className="dropdown-btn secondary-btn">Ratings</button>
+          <div className="dropdown-content">
+            <p onClick={()=>filterDispatch({type: "SORT", payload: "4_&_UP"})}>4<i class="fa fa-star fa-1" aria-hidden="true"></i> &amp; Above </p>
+            <p onClick={()=>filterDispatch({type: "SORT", payload: "3_&_UP"})}>3<i class="fa fa-star fa-1" aria-hidden="true"></i> &amp; Above</p>
+            <p onClick={()=>filterDispatch({type: "SORT", payload: "2_&_UP"})}>2<i class="fa fa-star fa-1" aria-hidden="true"></i> &amp; Above</p>
+            <p onClick={()=>filterDispatch({type: "SORT", payload: "1_&_UP"})}>1<i class="fa fa-star fa-1" aria-hidden="true"></i> &amp; Above</p>
+          </div>
+        </div>
       </fieldset>
       <fieldset>
         <legend>Filter</legend>
@@ -36,7 +57,7 @@ export function Filters(){
           <input
             type="checkbox"
             checked={showInventory}
-            onClick={() => filterDispatch({ type: "TOGGLE_INVENTORY" })}
+            onChange={() => filterDispatch({ type: "TOGGLE_INVENTORY" })}
             className="filter-input"
           ></input>
           Include Out Of Stock
@@ -45,7 +66,7 @@ export function Filters(){
           <input
             type="checkbox"
             checked={fastDelivery}
-            onClick={() => filterDispatch({ type: "FAST_DELIVERY" })}
+            onChange={() => filterDispatch({ type: "FAST_DELIVERY" })}
             className="filter-input"
           ></input>
           Fast-Delivery

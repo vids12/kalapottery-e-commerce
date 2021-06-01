@@ -1,45 +1,49 @@
-import { Link } from "react-router-dom";
+import { useState,useEffect } from "react";
+import axios from "axios";
+import { getBestSellerData } from "../filterFunctions/getBestSellerData";
+import { getNewArrivalData } from "../filterFunctions/getNewArrivalData";
+import { getTopRatesData } from "../filterFunctions/getTopRatesData";
+import { LandingPageCard } from "../Components/Home Page/LandingPageCard";
+import { OfferCard } from "../Components/Home Page/OfferCard";
 export function LandingPage() {
+  const [route, setRoute] = useState("newArrival");
+  const [showProducts, setShowProducts] = useState([]);
+  useEffect(() => {
+    (async function () {
+      const response = await axios.get(`https://e-comm-backend.vids18.repl.co/products`);
+      setShowProducts(response.data.products);
+    })();
+  });
+  const bestSellerData = getBestSellerData(showProducts);
+  const newArrivalData = getNewArrivalData(showProducts);
+  const topRatesData = getTopRatesData(showProducts);
   return (
     <>
       <section style={{ textAlign: "center" }}>
         <img
-          src="https://images.unsplash.com/photo-1527642220350-24155bae0505?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1437&q=80"
+          src="//cdn.shopify.com/s/files/1/0535/8049/7061/files/bg_slide1.jpg?v=1612856055"
           alt="homepage-img"
           className="home-img"
         />
-      </section>
-      <section className="category-div">
-        <div className="category-card">
-          <img
-            src="https://images.unsplash.com/photo-1610128361323-6e941c97f023?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=335&q=80"
-            alt="procelain-pots"
-          />
-          <h4 className="card-data">Procelain Fin Vases</h4>
-          <p className="card-data">Some Description</p>
-          <Link to="/products"><button className="primary-btn">View More</button></Link>
-        </div>
-        <div className="category-card">
-          <img
-            src="https://images.unsplash.com/photo-1592062357348-07acb343764f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80"
-            alt="ceramic-pots"
-            className="category-img"
-          />
-          <h4 className="card-data">Ceramic Vases</h4>
-          <p className="card-data">Some Description</p>
-          <Link to="/products"><button className="primary-btn">View More</button></Link>
-        </div>
-        <div className="category-card">
-          <img
-            src="https://images.unsplash.com/photo-1549221495-83d3c5109d62?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80"
-            alt="glass-vases"
-            className="category-img"
-          />
-          <h4 className="card-data">Glass Vases</h4>
-          <p className="card-data">Some Description</p>
-          <Link to="/products"><button className="primary-btn">View More</button></Link>
+        <div>
+          <img src="https://cdn.shopify.com/s/files/1/0535/8049/7061/files/slide1.1.jpg?v=1612855741" alt="slide-img" className="slide-img" />
         </div>
       </section>
+      <LandingPageCard />
+      <section className="bestSeller-div">
+        <h3 className="title-heading">Our Best Seller</h3>
+        <div className="landing-btns">
+          <button className="secondary-btn" onClick={()=>setRoute("newArrival")} style={route==="newArrival" ? {backgroundColor:"black",color:"white" } : {backgroundColor:"white",color:"black"} }>New Arrivals</button>
+          <button className="secondary-btn" onClick={()=>setRoute("bestSeller")} style={route==="bestSeller" ? {backgroundColor:"black",color:"white" } : {backgroundColor:"white",color:"black"} }>Best Sellers</button>
+          <button className="secondary-btn" onClick={()=>setRoute("topRates")} style={route==="topRates" ? {backgroundColor:"black",color:"white" } : {backgroundColor:"white",color:"black"} }>Top Rates</button>
+        </div>
+        <div>
+          {route ==="newArrival" && <OfferCard list={newArrivalData}/>}
+          {route === "bestSeller" && <OfferCard list={bestSellerData}/>}
+          {route === "topRates" && <OfferCard list={topRatesData} />}
+        </div>
+      </section>
+      <Banner />
     </>
   );
 }

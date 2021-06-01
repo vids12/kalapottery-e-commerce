@@ -4,6 +4,7 @@ export const CartContext = createContext();
 
 export function CartProvider({ children }) {
   const [ searchValue,setSearchValue ] = useState("");
+  const [ showSearchPage, setShowSearchPage ] = useState(false);
   const [state, dispatch] = useReducer(cartReducer, {
     itemsInCart: [],
     wishList: [],
@@ -21,7 +22,9 @@ export function CartProvider({ children }) {
         sortBy: state.sortBy,
         dispatch,
         searchValue,
-        setSearchValue
+        setSearchValue,
+        setShowSearchPage,
+        showSearchPage
       }}
     >
       {children}
