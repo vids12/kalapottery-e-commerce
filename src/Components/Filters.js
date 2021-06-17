@@ -1,4 +1,4 @@
-import { useCart } from "../dataProvider/CartProvider";
+import { useCart } from "../dataProvider/contexts/CartProvider";
 
 export function Filters(){
     const { dispatch:filterDispatch, fastDelivery, showInventory, sortBy } = useCart();
@@ -44,10 +44,10 @@ export function Filters(){
         <div className="dropdown">
           <button className="dropdown-btn secondary-btn">Ratings</button>
           <div className="dropdown-content">
-            <p onClick={()=>filterDispatch({type: "SORT", payload: "4_&_UP"})}>4<i class="fa fa-star fa-1" aria-hidden="true"></i> &amp; Above </p>
-            <p onClick={()=>filterDispatch({type: "SORT", payload: "3_&_UP"})}>3<i class="fa fa-star fa-1" aria-hidden="true"></i> &amp; Above</p>
-            <p onClick={()=>filterDispatch({type: "SORT", payload: "2_&_UP"})}>2<i class="fa fa-star fa-1" aria-hidden="true"></i> &amp; Above</p>
-            <p onClick={()=>filterDispatch({type: "SORT", payload: "1_&_UP"})}>1<i class="fa fa-star fa-1" aria-hidden="true"></i> &amp; Above</p>
+            <p onClick={()=>filterDispatch({type: "SORT", payload: "4_&_UP"})}>4<i className="fa fa-star fa-1" aria-hidden="true"></i> &amp; Above </p>
+            <p onClick={()=>filterDispatch({type: "SORT", payload: "3_&_UP"})}>3<i className="fa fa-star fa-1" aria-hidden="true"></i> &amp; Above</p>
+            <p onClick={()=>filterDispatch({type: "SORT", payload: "2_&_UP"})}>2<i className="fa fa-star fa-1" aria-hidden="true"></i> &amp; Above</p>
+            <p onClick={()=>filterDispatch({type: "SORT", payload: "1_&_UP"})}>1<i className="fa fa-star fa-1" aria-hidden="true"></i> &amp; Above</p>
           </div>
         </div>
       </fieldset>

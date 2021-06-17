@@ -1,4 +1,4 @@
-import { useCart } from "../dataProvider/CartProvider"
+import { useCart } from "../dataProvider/contexts/CartProvider"
 
 export function totalAmount() {
     const { itemsInCart } = useCart();

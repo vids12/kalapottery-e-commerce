@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useCart } from "../../dataProvider/CartProvider";
+import { useCart } from "../../dataProvider/contexts/CartProvider";
 import { totalAmount } from "../../utils/totalAmount";
 
 export function CartCard(){

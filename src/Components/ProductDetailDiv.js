@@ -1,7 +1,9 @@
-import { useCart } from "../dataProvider/CartProvider";
+import { useNavigate } from "react-router";
+import { useCart } from "../dataProvider/contexts/CartProvider";
 
 export function ProductDetailDiv({ product }) {
     const { dispatch: cartDispatch, itemsInCart, wishList } = useCart();
+    const navigate = useNavigate();
     return <div className="product-detail-div">
     <img src={product.image} alt={product.name} className="product-img" />
     <div className="product-div">
@@ -14,7 +16,7 @@ export function ProductDetailDiv({ product }) {
       <p><span className="option" style={{marginTop:"1.5rem"}}>COLOR </span><span className="product-color">{product.color}</span></p>
       {
         itemsInCart.find(item => item._id === product._id)
-        ? <Link to="/cart"><button className="primary-btn">Go to Cart</button></Link>
+        ? <button className="primary-btn" onClick={() => navigate("/cart")}>Go to Cart</button>
           : <button onClick={() =>{ cartDispatch({ type: "ADD_TO_CART", payload: product });}} className="primary-btn">
          Add to Cart
         </button>
